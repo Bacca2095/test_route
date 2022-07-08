@@ -20,6 +20,7 @@ export class TestComponent implements OnInit {
         this.executeActionIfRouteContainParams(params);
       } else {
         this.routeWithParams = false;
+        this.executeActionIfRouteNotContainsParams();
       }
     });
   }
@@ -30,5 +31,9 @@ export class TestComponent implements OnInit {
       .map((key) => `${key}=${params[key]}`)
       .join(', ');
     this.text = `This route contains the below values for query params ${paramsToText}`;
+  }
+
+  executeActionIfRouteNotContainsParams() {
+    this.text = `This route not contains params`;
   }
 }
